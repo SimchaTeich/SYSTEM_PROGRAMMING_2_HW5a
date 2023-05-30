@@ -22,24 +22,27 @@ void MagicalContainer::addElement(int value)
     insertNode_asc(pNewNode);
     _size++;
 
-    if(isPrime(value))
-    {
-        insertNode_asc(pNewNode);
-        _primeSize++;
-    }
+    printLinkedListAscNext();
+    printLinkedListAscBack();
+
+    // if(isPrime(value))
+    // {
+    //     insertNode_prime(pNewNode);
+    //     _primeSize++;
+    // }
 };
 
 
 void MagicalContainer::removeElement(int value)
 {
-    removeNode_asc(value);
-    _size--;
+    // removeNode_asc(value);
+    // _size--;
 
-    if(isPrime(value))
-    {
-        removeNode_asc(value);
-        _primeSize--;
-    }
+    // if(isPrime(value))
+    // {
+    //     removeNode_asc(value);
+    //     _primeSize--;
+    // }
 };
 
 
@@ -70,7 +73,7 @@ void MagicalContainer::insertNode_asc(MisticalElementNode *pNode)
 
         // replace the head
         _head = pNode;
-
+        
         return;
     }
 
@@ -117,13 +120,27 @@ bool MagicalContainer::isPrime(int num) const
 };
 
 
-void MagicalContainer::printLinkedList(MisticalElementNode *pHead) const
+void MagicalContainer::printLinkedListAscNext() const
 {
-    MisticalElementNode *pCurr = pHead;
+    MisticalElementNode *pCurr = _head;
 
     while(pCurr)
     {
         cout << pCurr->value() << " --> ";
+        pCurr = pCurr->getAscNext();
+    }
+    cout << "NULL" << endl;
+}
+
+
+void MagicalContainer::printLinkedListAscBack() const
+{
+    MisticalElementNode *pCurr = _tail;
+
+    while(pCurr)
+    {
+        cout << pCurr->value() << " --> ";
+        pCurr = pCurr->getAscBack();
     }
     cout << "NULL" << endl;
 }
