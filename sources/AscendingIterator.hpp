@@ -10,16 +10,17 @@ class MagicalContainer::AscendingIterator
 private:
     MagicalContainer& _container;
     MisticalElementNode *_pElement;
-    int stepsNo;
+    int _stepsNo;
     
 public:
     AscendingIterator(MagicalContainer& container);
-    AscendingIterator(AscendingIterator& other);
-    ~AscendingIterator();
+    //AscendingIterator(AscendingIterator& other);
+    //~AscendingIterator();
 
     // operatores
-    friend AscendingIterator& operator++(AscendingIterator& iterator); // pre
-    friend int operator*(AscendingIterator& iterator);
+    AscendingIterator& operator++(); // pre
+    int operator*();
+    bool operator!=(const AscendingIterator& other);
 
     AscendingIterator begin();
     AscendingIterator end();

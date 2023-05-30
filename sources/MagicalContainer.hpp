@@ -37,7 +37,7 @@ namespace ariel
     // code for Iterators in extrenal hpp files.
     // https://stackoverflow.com/questions/28176371/how-can-i-avoid-this-ugly-nested-class-c-code
     public:
-        //class AscendingIterator;
+        class AscendingIterator;
         //class SideCrossIterator;
         //class PrimeIterator;
     };
