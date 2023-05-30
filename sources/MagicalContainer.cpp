@@ -39,6 +39,12 @@ void MagicalContainer::removeElement(int value)
 };
 
 
+int MagicalContainer::size() const
+{
+    return _size;
+}
+
+
 bool MagicalContainer::isPrime(int num) const
 {
     if (num <= 1) return false;
