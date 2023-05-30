@@ -23,7 +23,20 @@ void MagicalContainer::addElement(int value)
         insertNode(pNewNode, _primeHead);
         _primeSize++;
     }
-}
+};
+
+
+void MagicalContainer::removeElement(int value)
+{
+    removeNode(value, _head);
+    _size--;
+
+    if(isPrime(value))
+    {
+        removeNode(value, _primeHead);
+        _primeSize--;
+    }
+};
 
 
 bool MagicalContainer::isPrime(int num) const
