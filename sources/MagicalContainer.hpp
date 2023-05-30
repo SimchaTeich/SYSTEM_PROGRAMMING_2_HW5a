@@ -12,7 +12,7 @@ namespace ariel
         ~MagicalContainer();
         void addElement(int value);
         void removeElement(int value);
-        void size() const;
+        int size() const;
 
     private:
         // helpers methods
