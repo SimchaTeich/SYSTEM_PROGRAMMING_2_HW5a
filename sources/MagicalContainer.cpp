@@ -344,7 +344,7 @@ void MagicalContainer::printLinkedListAscNext() const
 
     while(pCurr)
     {
-        cout << pCurr->value() << " --> ";
+        cout << *pCurr << " --> ";
         pCurr = pCurr->getAscNext();
     }
     cout << "NULL" << endl;
@@ -356,7 +356,7 @@ void MagicalContainer::printLinkedListAscBack() const
 
     while(pCurr)
     {
-        cout << pCurr->value() << " --> ";
+        cout << *pCurr << " --> ";
         pCurr = pCurr->getAscBack();
     }
     cout << "NULL" << endl;
@@ -368,7 +368,7 @@ void MagicalContainer::printLinkedListPrimeNext() const
 
     while(pCurr)
     {
-        cout << pCurr->value() << " --> ";
+        cout << *pCurr << " --> ";
         pCurr = pCurr->getPrimeNext();
     }
     cout << "NULL" << endl;
@@ -380,7 +380,7 @@ void MagicalContainer::printLinkedListPrimeBack() const
 
     while(pCurr)
     {
-        cout << pCurr->value() << " --> ";
+        cout << *pCurr << " --> ";
         pCurr = pCurr->getPrimeBack();
     }
     cout << "NULL" << endl;
