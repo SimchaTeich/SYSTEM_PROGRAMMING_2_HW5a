@@ -1,4 +1,8 @@
 #include "MagicalContainer.hpp"
+#include <iostream>
+
+using std::cout;
+using std::endl;
 
 using namespace ariel;
 
@@ -113,3 +117,13 @@ bool MagicalContainer::isPrime(int num) const
 };
 
 
+void MagicalContainer::printLinkedList(MisticalElementNode *pHead) const
+{
+    MisticalElementNode *pCurr = pHead;
+
+    while(pCurr)
+    {
+        cout << pCurr->value() << " --> ";
+    }
+    cout << "NULL" << endl;
+}
