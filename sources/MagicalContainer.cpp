@@ -22,14 +22,11 @@ void MagicalContainer::addElement(int value)
     insertNode_asc(pNewNode);
     _size++;
 
-    printLinkedListAscNext();
-    printLinkedListAscBack();
-
-    // if(isPrime(value))
-    // {
-    //     insertNode_prime(pNewNode);
-    //     _primeSize++;
-    // }
+    if(isPrime(value))
+    {
+        insertNode_prime(pNewNode);
+        _primeSize++;
+    }
 };
 
 
@@ -85,7 +82,7 @@ void MagicalContainer::insertNode_asc(MisticalElementNode *pNode)
     }
 
     // 2 options here: 'middle' or after tail..
-    if(pCurr->getAscNext() == nullptr) // tail case
+    if(pCurr->getAscNext() == nullptr)                   // tail case
     {
         // update pointers
         pNode->setAscBack(pCurr);
@@ -94,7 +91,7 @@ void MagicalContainer::insertNode_asc(MisticalElementNode *pNode)
         // replace the tail
         _tail = pNode;
     }
-    else                               // 'middle' case
+    else                                                 // 'middle' case
     {
         // update pointers of new Node
         pNode->setAscBack(pCurr);
@@ -103,6 +100,61 @@ void MagicalContainer::insertNode_asc(MisticalElementNode *pNode)
         // updates pointers of two nodes we disconnect them
         pCurr->setAscNext(pNode);
         pNode->getAscNext()->setAscBack(pNode);
+    }
+}
+
+
+void MagicalContainer::insertNode_prime(MisticalElementNode *pNode)
+{
+    // for first prime node
+    if(_primeHead == nullptr)
+    {
+        _primeHead = pNode;
+        _primeTail = pNode;
+
+        return;
+    }
+
+    // in case we need to change the head of primes:
+    if(pNode->value() < _primeHead->value())
+    {
+        // update pointers
+        pNode->setPrimeNext(_primeHead);
+        _primeHead->setPrimeBack(pNode);
+
+
+        // replace the head of primes
+        _primeHead = pNode;
+        
+        return;
+    }
+
+    // all other cases: find the node will be before new node.
+    MisticalElementNode *pCurr = _primeHead;
+    while(pCurr->getPrimeNext() && pCurr->getPrimeNext()->value() < pNode->value())
+    {
+        pCurr = pCurr->getPrimeNext();
+    }
+
+    // 2 options here: 'middle' or after tail of primes
+    if(pCurr->getPrimeNext() == nullptr)                   // prime-tail case
+    {
+        // update pointers
+        pNode->setPrimeBack(pCurr);
+        pCurr->setPrimeNext(pNode);
+
+        // replace the tail
+        _primeTail = pNode;
+    }
+    else                                                 // 'middle' case
+    {
+        // update pointers of new Node
+        pNode->setPrimeBack(pCurr);
+        pNode->setPrimeNext(pCurr->getPrimeNext());
+
+        // updates pointers of two nodes we disconnect them
+        pCurr->setPrimeNext(pNode);
+        pNode->getPrimeNext()->setPrimeBack(pNode);
     }
 }
 
@@ -141,6 +193,32 @@ void MagicalContainer::printLinkedListAscBack() const
     {
         cout << pCurr->value() << " --> ";
         pCurr = pCurr->getAscBack();
+    }
+    cout << "NULL" << endl;
+}
+
+
+void MagicalContainer::printLinkedListPrimeNext() const
+{
+    MisticalElementNode *pCurr = _primeHead;
+
+    while(pCurr)
+    {
+        cout << pCurr->value() << " --> ";
+        pCurr = pCurr->getPrimeNext();
+    }
+    cout << "NULL" << endl;
+}
+
+
+void MagicalContainer::printLinkedListPrimeBack() const
+{
+    MisticalElementNode *pCurr = _primeTail;
+
+    while(pCurr)
+    {
+        cout << pCurr->value() << " --> ";
+        pCurr = pCurr->getPrimeBack();
     }
     cout << "NULL" << endl;
 }
