@@ -1,6 +1,9 @@
 #ifndef MISTICAL_ELEMENT_NODE_HPP
 #define MISTICAL_ELEMENT_NODE_HPP
 
+#include <iostream>
+using std::ostream;
+
 namespace ariel
 {
     class MisticalElementNode
@@ -20,6 +23,9 @@ namespace ariel
         void setAscBack(MisticalElementNode *next);
         void setPrimeNext(MisticalElementNode *next);
         void setPrimeBack(MisticalElementNode *next);
+
+        // use for easy printing
+        friend ostream& operator<<(ostream& os, const MisticalElementNode& node);
 
     private:
         int _value;
