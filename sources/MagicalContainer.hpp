@@ -9,6 +9,7 @@ namespace ariel
     {
     public:
         MagicalContainer();
+        ~MagicalContainer();
         void addElement(int value);
         void removeElement(int value);
         void size() const;
@@ -16,8 +17,8 @@ namespace ariel
     private:
         // helpers methods
         bool isPrime(int num) const;
-        MisticalElementNode *createNode(int value) const;
-        void insertNode(MisticalElementNode *pNode);
+        void insertNode(MisticalElementNode *pNode, MisticalElementNode *pHead);
+        void removeNode(int value, MisticalElementNode *pHead);
         void printLinkedList(MisticalElementNode *pHead) const;
 
         // members
