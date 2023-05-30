@@ -1,4 +1,6 @@
-#include "AscendingIterator.hpp"
+#include "MagicalContainer.hpp"
+
+using namespace ariel;
 
 
 MagicalContainer::AscendingIterator::AscendingIterator(MagicalContainer& container)
@@ -29,7 +31,7 @@ int MagicalContainer::AscendingIterator::operator*()
 };
 
 
-bool MagicalContainer::AscendingIterator::operator!=(const MagicalContainer::AscendingIterator& other)
+bool MagicalContainer::AscendingIterator::operator!=(const AscendingIterator& other)
 {
     return _pElement != other._pElement;
 };
@@ -37,7 +39,7 @@ bool MagicalContainer::AscendingIterator::operator!=(const MagicalContainer::Asc
 
 MagicalContainer::AscendingIterator MagicalContainer::AscendingIterator::begin()
 {
-    MagicalContainer::AscendingIterator newIterator(_container);
+    AscendingIterator newIterator(_container);
     newIterator._pElement = _container._head;
 
     return newIterator;
@@ -46,7 +48,5 @@ MagicalContainer::AscendingIterator MagicalContainer::AscendingIterator::begin()
 
 MagicalContainer::AscendingIterator MagicalContainer::AscendingIterator::end()
 {
-    MagicalContainer::AscendingIterator newIterator(_container);
-
-    return newIterator;
+    return AscendingIterator(_container);
 };
