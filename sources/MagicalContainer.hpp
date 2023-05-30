@@ -17,8 +17,10 @@ namespace ariel
     private:
         // helpers methods
         bool isPrime(int num) const;
-        void insertNode(MisticalElementNode *pNode, MisticalElementNode *pHead);
-        void removeNode(int value, MisticalElementNode *pHead);
+        void insertNode_asc(MisticalElementNode *pNode);
+        void insertNode_prime(MisticalElementNode *pNode);
+        void removeNode_asc(int value);
+        void removeNode_prime(int value);
         void printLinkedList(MisticalElementNode *pHead) const;
 
         // members
