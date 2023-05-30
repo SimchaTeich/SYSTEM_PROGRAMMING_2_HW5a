@@ -6,6 +6,7 @@ using std::endl;
 
 using namespace ariel;
 
+// C'TOR
 MagicalContainer::MagicalContainer()
 {
     _size = 0;
@@ -16,6 +17,7 @@ MagicalContainer::MagicalContainer()
 };
 
 
+/***************************    API    *****************************/
 void MagicalContainer::addElement(int value)
 {
     MisticalElementNode *pNewNode = new MisticalElementNode(value);
@@ -29,26 +31,35 @@ void MagicalContainer::addElement(int value)
     }
 };
 
-
 void MagicalContainer::removeElement(int value)
 {
-    // removeNode_asc(value);
-    // _size--;
+    MisticalElementNode *pRemoved  = removeNode_asc(value);
+    
+    if(isPrime(value))
+    {
+        if(removeNode_prime(value) != nullptr) // same address as pRemoved..
+        {
+            _primeSize--;
+        }
+    }
 
-    // if(isPrime(value))
-    // {
-    //     removeNode_asc(value);
-    //     _primeSize--;
-    // }
+    // delete memory.
+    if(pRemoved != nullptr) 
+    {   
+        delete pRemoved;
+        _size--;
+    }
 };
-
 
 int MagicalContainer::size() const
 {
     return _size;
 }
+/*******************************************************************/
 
 
+
+/*******************  INSERT TO THE LINKED-LISTS  ******************/
 void MagicalContainer::insertNode_asc(MisticalElementNode *pNode)
 {
     // for first node
@@ -103,7 +114,6 @@ void MagicalContainer::insertNode_asc(MisticalElementNode *pNode)
     }
 }
 
-
 void MagicalContainer::insertNode_prime(MisticalElementNode *pNode)
 {
     // for first prime node
@@ -157,6 +167,161 @@ void MagicalContainer::insertNode_prime(MisticalElementNode *pNode)
         pNode->getPrimeNext()->setPrimeBack(pNode);
     }
 }
+/*******************************************************************/
+
+
+
+/******************  REMOVE FROM THE LINKED-LISTS  *****************/
+MisticalElementNode *MagicalContainer::removeNode_asc(int value)
+{   
+    if(_size == 0) return nullptr;
+
+    MisticalElementNode *pRemoved = nullptr;
+
+    if(_size == 1)
+    {
+        // save pointer to node will be delete
+        pRemoved = _head;
+
+        // update pointers
+        _head = nullptr;
+        _tail = nullptr;
+    }
+
+    // if we need to remove the first Node
+    else if(value == _head->value())
+    {
+        // save pointer to node will be delete
+        pRemoved = _head;
+
+        // update the new head
+        _head = _head->getAscNext();
+        _head->setAscBack(nullptr);
+
+        // 'clean' the removed node pointers.
+        pRemoved->setAscNext(nullptr);
+    }
+
+    //if we need to remove the tail Node
+    else if(value == _tail->value())
+    {
+        // save pointer to node will be delete
+        pRemoved = _tail;
+
+        // update new tail
+        _tail = _tail->getAscBack();
+
+        // update pointers.
+        _tail->setAscNext(nullptr);
+
+        // 'clean' the removed node pointers.
+        pRemoved->setAscBack(nullptr);
+    }
+    else
+    {
+        // find the node will remove
+        MisticalElementNode *pCurr = _head;
+        while(pCurr)
+        {
+            if(value == pCurr->value())
+            {
+                pRemoved = pCurr;
+                break;
+            }
+            else pCurr = pCurr->getAscNext();
+        }
+
+        // if we found node to delete..
+        if(pRemoved != nullptr)
+        {
+            // update pointers
+            pRemoved->getAscBack()->setAscNext(pRemoved->getAscNext());
+            pRemoved->getAscNext()->setAscBack(pRemoved->getAscBack());
+
+            // 'clean' the removed node pointers.
+            pRemoved->setAscNext(nullptr);
+            pRemoved->setAscBack(nullptr);
+        }
+    }
+
+    return pRemoved;
+}
+
+MisticalElementNode *MagicalContainer::removeNode_prime(int value)
+{   
+    if(_primeSize == 0) return nullptr;
+
+    MisticalElementNode *pRemoved = nullptr;
+
+    if(_primeSize == 1)
+    {
+        // save pointer to node will be delete
+        pRemoved = _primeHead;
+
+        // update pointers
+        _primeHead = nullptr;
+        _primeTail = nullptr;
+    }
+
+    // if we need to remove the first Node
+    else if(value == _primeHead->value())
+    {
+        // save pointer to node will be delete
+        pRemoved = _primeHead;
+
+        // update the new head
+        _primeHead = _primeHead->getPrimeNext();
+        _primeHead->setPrimeBack(nullptr);
+
+        // 'clean' the removed node pointers.
+        pRemoved->setPrimeNext(nullptr);
+    }
+
+    //if we need to remove the tail Node
+    else if(value == _primeTail->value())
+    {
+        // save pointer to node will be delete
+        pRemoved = _primeTail;
+
+        // update new tail
+        _primeTail = _primeTail->getPrimeBack();
+
+        // update pointers.
+        _primeTail->setPrimeNext(nullptr);
+
+        // 'clean' the removed node pointers.
+        pRemoved->setPrimeBack(nullptr);
+    }
+    else
+    {
+        // find the node will remove
+        MisticalElementNode *pCurr = _primeHead;
+        while(pCurr)
+        {
+            if(value == pCurr->value())
+            {
+                pRemoved = pCurr;
+                break;
+            }
+            else pCurr = pCurr->getPrimeNext();
+        }
+
+        // if we found node to delete..
+        if(pRemoved != nullptr)
+        {
+            // update pointers
+            pRemoved->getPrimeBack()->setPrimeNext(pRemoved->getPrimeNext());
+            pRemoved->getPrimeNext()->setPrimeBack(pRemoved->getPrimeBack());
+
+            // 'clean' the removed node pointers.
+            pRemoved->setPrimeNext(nullptr);
+            pRemoved->setPrimeBack(nullptr);
+        }
+    }
+
+    return pRemoved;
+}
+/*******************************************************************/
 
 
 bool MagicalContainer::isPrime(int num) const
@@ -172,6 +337,7 @@ bool MagicalContainer::isPrime(int num) const
 };
 
 
+/*********************  PRINT THE LINKED-LISTS *********************/
 void MagicalContainer::printLinkedListAscNext() const
 {
     MisticalElementNode *pCurr = _head;
@@ -183,7 +349,6 @@ void MagicalContainer::printLinkedListAscNext() const
     }
     cout << "NULL" << endl;
 }
-
 
 void MagicalContainer::printLinkedListAscBack() const
 {
@@ -197,7 +362,6 @@ void MagicalContainer::printLinkedListAscBack() const
     cout << "NULL" << endl;
 }
 
-
 void MagicalContainer::printLinkedListPrimeNext() const
 {
     MisticalElementNode *pCurr = _primeHead;
@@ -210,7 +374,6 @@ void MagicalContainer::printLinkedListPrimeNext() const
     cout << "NULL" << endl;
 }
 
-
 void MagicalContainer::printLinkedListPrimeBack() const
 {
     MisticalElementNode *pCurr = _primeTail;
@@ -222,3 +385,4 @@ void MagicalContainer::printLinkedListPrimeBack() const
     }
     cout << "NULL" << endl;
 }
+/*******************************************************************/

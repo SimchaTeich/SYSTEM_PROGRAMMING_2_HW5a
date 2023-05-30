@@ -19,8 +19,8 @@ namespace ariel
         bool isPrime(int num) const;
         void insertNode_asc(MisticalElementNode *pNode);
         void insertNode_prime(MisticalElementNode *pNode);
-        //void removeNode_asc(int value);
-        //void removeNode_prime(int value);
+        MisticalElementNode *removeNode_asc(int value);
+        MisticalElementNode *removeNode_prime(int value);
         void printLinkedListAscNext() const;
         void printLinkedListAscBack() const;
         void printLinkedListPrimeNext() const;
