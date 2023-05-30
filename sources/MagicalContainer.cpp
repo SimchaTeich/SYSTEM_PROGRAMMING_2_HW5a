@@ -12,6 +12,20 @@ MagicalContainer::MagicalContainer()
 };
 
 
+void MagicalContainer::addElement(int value)
+{
+    MisticalElementNode *pNewNode = new MisticalElementNode(value);
+    insertNode(pNewNode, _head);
+    _size++;
+
+    if(isPrime(value))
+    {
+        insertNode(pNewNode, _primeHead);
+        _primeSize++;
+    }
+}
+
+
 bool MagicalContainer::isPrime(int num) const
 {
     if (num <= 1) return false;
@@ -23,3 +37,5 @@ bool MagicalContainer::isPrime(int num) const
 
     return true;
 };
+
+
