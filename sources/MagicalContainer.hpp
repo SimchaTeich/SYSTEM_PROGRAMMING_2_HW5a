@@ -39,7 +39,7 @@ namespace ariel
     public:
         class AscendingIterator;
         //class SideCrossIterator;
-        //class PrimeIterator;
+        class PrimeIterator;
     };
 
 
@@ -62,6 +62,28 @@ namespace ariel
 
         AscendingIterator begin();
         AscendingIterator end();
+    };
+
+
+    class MagicalContainer::PrimeIterator
+    {
+    private:
+        MagicalContainer& _container;
+        MisticalElementNode *_pElement;
+        int _stepsNo;
+        
+    public:
+        PrimeIterator(MagicalContainer& container);
+        //AscendingIterator(AscendingIterator& other);
+        //~AscendingIterator();
+
+        // operatores
+        PrimeIterator& operator++(); // pre
+        int operator*();
+        bool operator!=(const PrimeIterator& other);
+
+        PrimeIterator begin();
+        PrimeIterator end();
     };
 };
 
