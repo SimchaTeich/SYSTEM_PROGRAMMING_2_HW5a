@@ -38,7 +38,7 @@ namespace ariel
     // https://stackoverflow.com/questions/28176371/how-can-i-avoid-this-ugly-nested-class-c-code
     public:
         class AscendingIterator;
-        //class SideCrossIterator;
+        class SideCrossIterator;
         class PrimeIterator;
     };
 
@@ -65,6 +65,30 @@ namespace ariel
     };
 
 
+    class MagicalContainer::SideCrossIterator
+    {
+    private:
+        MagicalContainer& _container;
+        MisticalElementNode *_pElementFromStart;
+        MisticalElementNode *_pElementFromEnd;
+        bool moveFromStart;
+        int _stepsNo;
+        
+    public:
+        SideCrossIterator(MagicalContainer& container);
+        //SideCrossIterator(SideCrossIterator& other);
+        //~SideCrossIterator();
+
+        // operatores
+        SideCrossIterator& operator++(); // pre
+        int operator*();
+        bool operator!=(const SideCrossIterator& other);
+
+        SideCrossIterator begin();
+        SideCrossIterator end();
+    };
+
+
     class MagicalContainer::PrimeIterator
     {
     private:
@@ -74,8 +98,8 @@ namespace ariel
         
     public:
         PrimeIterator(MagicalContainer& container);
-        //AscendingIterator(AscendingIterator& other);
-        //~AscendingIterator();
+        //PrimeIterator(PrimeIterator& other);
+        //~PrimeIterator();
 
         // operatores
         PrimeIterator& operator++(); // pre
