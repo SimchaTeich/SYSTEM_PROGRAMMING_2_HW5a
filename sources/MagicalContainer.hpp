@@ -71,7 +71,7 @@ namespace ariel
         MagicalContainer& _container;
         MisticalElementNode *_pElementFromStart;
         MisticalElementNode *_pElementFromEnd;
-        bool moveFromStart;
+        bool _moveFromStart;
         int _stepsNo;
         
     public:
