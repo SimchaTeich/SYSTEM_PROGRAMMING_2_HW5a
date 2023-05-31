@@ -40,7 +40,7 @@ bool MagicalContainer::PrimeIterator::operator!=(const PrimeIterator& other)
 MagicalContainer::PrimeIterator MagicalContainer::PrimeIterator::begin()
 {
     PrimeIterator newIterator(_container);
-    newIterator._pElement = _container._head;
+    newIterator._pElement = _container._primeHead;
 
     return newIterator;
 };
