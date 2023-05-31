@@ -42,31 +42,33 @@ MagicalContainer::SideCrossIterator& MagicalContainer::SideCrossIterator::operat
 
 int MagicalContainer::SideCrossIterator::operator*()
 {
-    if(_moveFromStart) // if next step will be from start, last was from end. so:
+    if(_moveFromStart)
     {
-        if(_pElementFromEnd == nullptr) throw "Ilegal iterator";
+        if(_pElementFromStart == nullptr) throw "Ilegal iterator";
 
-        return _pElementFromEnd->value();
+        return _pElementFromStart->value();
     }
     
     //else
-    if(_pElementFromStart == nullptr) throw "Ilegal iterator";
+    if(_pElementFromEnd == nullptr) throw "Ilegal iterator";
 
-    return _pElementFromStart->value();
+    return _pElementFromEnd->value();
 };
 
 
 bool MagicalContainer::SideCrossIterator::operator!=(const SideCrossIterator& other)
 {
-    if(_moveFromStart != other._moveFromStart) return false;
+    // if(_moveFromStart != other._moveFromStart) return false;
 
-    if(_moveFromStart)
-    {
-        return _pElementFromStart == other._pElementFromStart;
-    }
+    // if(_moveFromStart)
+    // {
+    //     return _pElementFromStart != other._pElementFromStart;
+    // }
     
-    // else
-    return _pElementFromEnd == other._pElementFromEnd;
+    // // else
+    // return _pElementFromEnd != other._pElementFromEnd;
+
+    return _stepsNo != other._stepsNo;
 };
 
 
@@ -82,5 +84,7 @@ MagicalContainer::SideCrossIterator MagicalContainer::SideCrossIterator::begin()
 
 MagicalContainer::SideCrossIterator MagicalContainer::SideCrossIterator::end()
 {
-    return SideCrossIterator(_container);
+    SideCrossIterator newIterator(_container);
+    newIterator._stepsNo = _container._size;
+    return newIterator;
 };
