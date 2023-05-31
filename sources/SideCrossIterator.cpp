@@ -58,16 +58,6 @@ int MagicalContainer::SideCrossIterator::operator*()
 
 bool MagicalContainer::SideCrossIterator::operator!=(const SideCrossIterator& other)
 {
-    // if(_moveFromStart != other._moveFromStart) return false;
-
-    // if(_moveFromStart)
-    // {
-    //     return _pElementFromStart != other._pElementFromStart;
-    // }
-    
-    // // else
-    // return _pElementFromEnd != other._pElementFromEnd;
-
     return _stepsNo != other._stepsNo;
 };
 
