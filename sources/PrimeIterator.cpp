@@ -11,6 +11,24 @@ MagicalContainer::PrimeIterator::PrimeIterator(MagicalContainer& container)
 };
 
 
+MagicalContainer::PrimeIterator::PrimeIterator(PrimeIterator& other)
+    : _container(other._container)
+{
+    *this = other;
+};
+
+
+MagicalContainer::PrimeIterator& MagicalContainer::PrimeIterator::operator=(const PrimeIterator& other)
+{
+    _container = other._container;
+    _pElement = other._pElement;
+    _stepsNo = other._stepsNo;
+
+    return *this;
+};
+
+
+
 MagicalContainer::PrimeIterator& MagicalContainer::PrimeIterator::operator++()
 {
     if(_pElement != nullptr)

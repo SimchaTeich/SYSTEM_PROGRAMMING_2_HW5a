@@ -106,10 +106,11 @@ namespace ariel
         
     public:
         PrimeIterator(MagicalContainer& container);
-        //PrimeIterator(PrimeIterator& other);
+        PrimeIterator(PrimeIterator& other);
         //~PrimeIterator();
 
         // operatores
+        PrimeIterator& operator=(const PrimeIterator& other);
         PrimeIterator& operator++(); // pre
         int operator*();
         bool operator!=(const PrimeIterator& other) const;
