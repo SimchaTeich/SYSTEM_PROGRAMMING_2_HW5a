@@ -52,10 +52,11 @@ namespace ariel
         
     public:
         AscendingIterator(MagicalContainer& container);
-        //AscendingIterator(AscendingIterator& other);
+        AscendingIterator(AscendingIterator& other);
         //~AscendingIterator();
 
         // operatores
+        AscendingIterator& operator=(const AscendingIterator& other);
         AscendingIterator& operator++(); // pre
         int operator*();
         bool operator!=(const AscendingIterator& other) const;

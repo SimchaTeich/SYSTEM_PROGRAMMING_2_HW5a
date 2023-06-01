@@ -11,6 +11,23 @@ MagicalContainer::AscendingIterator::AscendingIterator(MagicalContainer& contain
 };
 
 
+MagicalContainer::AscendingIterator::AscendingIterator(AscendingIterator& other)
+    : _container(other._container)
+{
+    *this = other;
+};
+
+
+MagicalContainer::AscendingIterator& MagicalContainer::AscendingIterator::operator=(const AscendingIterator& other)
+{
+    _container = other._container;
+    _pElement = other._pElement;
+    _stepsNo = other._stepsNo;
+
+    return *this;
+};
+
+
 MagicalContainer::AscendingIterator& MagicalContainer::AscendingIterator::operator++()
 {
     if(_pElement != nullptr)
