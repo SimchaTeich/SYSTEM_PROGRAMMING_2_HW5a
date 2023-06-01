@@ -37,6 +37,24 @@ bool MagicalContainer::AscendingIterator::operator!=(const AscendingIterator& ot
 };
 
 
+bool MagicalContainer::AscendingIterator::operator==(const AscendingIterator& other)
+{
+    return !(*this == other);
+};
+
+
+bool MagicalContainer::AscendingIterator::operator>(const AscendingIterator& other)
+{
+    return _stepsNo > other._stepsNo;
+};
+
+
+bool MagicalContainer::AscendingIterator::operator<(const AscendingIterator& other)
+{
+    return _stepsNo < other._stepsNo;
+};
+
+
 MagicalContainer::AscendingIterator MagicalContainer::AscendingIterator::begin()
 {
     AscendingIterator newIterator(_container);
