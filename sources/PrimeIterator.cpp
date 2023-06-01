@@ -11,6 +11,9 @@ MagicalContainer::PrimeIterator::PrimeIterator(MagicalContainer& container)
 };
 
 
+MagicalContainer::PrimeIterator::~PrimeIterator(){};
+
+
 MagicalContainer::PrimeIterator::PrimeIterator(PrimeIterator& other)
     : _container(other._container)
 {
