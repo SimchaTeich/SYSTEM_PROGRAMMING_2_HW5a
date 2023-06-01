@@ -111,9 +111,9 @@ namespace ariel
         PrimeIterator& operator++(); // pre
         int operator*();
         bool operator!=(const PrimeIterator& other);
-        bool operator==(const AscendingIterator& other);
-        bool operator>(const AscendingIterator& other);
-        bool operator<(const AscendingIterator& other);
+        bool operator==(const PrimeIterator& other);
+        bool operator>(const PrimeIterator& other);
+        bool operator<(const PrimeIterator& other);
 
         PrimeIterator begin();
         PrimeIterator end();

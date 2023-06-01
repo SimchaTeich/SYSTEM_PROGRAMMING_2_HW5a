@@ -37,6 +37,24 @@ bool MagicalContainer::PrimeIterator::operator!=(const PrimeIterator& other)
 };
 
 
+bool MagicalContainer::PrimeIterator::operator==(const PrimeIterator& other)
+{
+    return !(*this == other);
+};
+
+
+bool MagicalContainer::PrimeIterator::operator>(const PrimeIterator& other)
+{
+    return _stepsNo > other._stepsNo;
+};
+
+
+bool MagicalContainer::PrimeIterator::operator<(const PrimeIterator& other)
+{
+    return _stepsNo < other._stepsNo;
+};
+
+
 MagicalContainer::PrimeIterator MagicalContainer::PrimeIterator::begin()
 {
     PrimeIterator newIterator(_container);
