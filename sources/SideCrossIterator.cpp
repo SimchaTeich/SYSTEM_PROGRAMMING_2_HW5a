@@ -56,25 +56,25 @@ int MagicalContainer::SideCrossIterator::operator*()
 };
 
 
-bool MagicalContainer::SideCrossIterator::operator!=(const SideCrossIterator& other)
+bool MagicalContainer::SideCrossIterator::operator!=(const SideCrossIterator& other) const
 {
     return _stepsNo != other._stepsNo;
 };
 
 
-bool MagicalContainer::SideCrossIterator::operator==(const SideCrossIterator& other)
+bool MagicalContainer::SideCrossIterator::operator==(const SideCrossIterator& other) const
 {
-    return !(*this == other);
+    return !(*this != other);
 };
 
 
-bool MagicalContainer::SideCrossIterator::operator>(const SideCrossIterator& other)
+bool MagicalContainer::SideCrossIterator::operator>(const SideCrossIterator& other) const
 {
     return _stepsNo > other._stepsNo;
 };
 
 
-bool MagicalContainer::SideCrossIterator::operator<(const SideCrossIterator& other)
+bool MagicalContainer::SideCrossIterator::operator<(const SideCrossIterator& other) const
 {
     return _stepsNo < other._stepsNo;
 };

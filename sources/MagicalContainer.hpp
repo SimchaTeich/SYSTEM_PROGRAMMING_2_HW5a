@@ -58,10 +58,10 @@ namespace ariel
         // operatores
         AscendingIterator& operator++(); // pre
         int operator*();
-        bool operator!=(const AscendingIterator& other);
-        bool operator==(const AscendingIterator& other);
-        bool operator>(const AscendingIterator& other);
-        bool operator<(const AscendingIterator& other);
+        bool operator!=(const AscendingIterator& other) const;
+        bool operator==(const AscendingIterator& other) const;
+        bool operator>(const AscendingIterator& other) const;
+        bool operator<(const AscendingIterator& other) const;
 
         AscendingIterator begin();
         AscendingIterator end();
@@ -85,10 +85,10 @@ namespace ariel
         // operatores
         SideCrossIterator& operator++(); // pre
         int operator*();
-        bool operator!=(const SideCrossIterator& other);
-        bool operator==(const SideCrossIterator& other);
-        bool operator>(const SideCrossIterator& other);
-        bool operator<(const SideCrossIterator& other);
+        bool operator!=(const SideCrossIterator& other) const;
+        bool operator==(const SideCrossIterator& other) const;
+        bool operator>(const SideCrossIterator& other) const;
+        bool operator<(const SideCrossIterator& other) const;
 
         SideCrossIterator begin();
         SideCrossIterator end();
@@ -110,10 +110,10 @@ namespace ariel
         // operatores
         PrimeIterator& operator++(); // pre
         int operator*();
-        bool operator!=(const PrimeIterator& other);
-        bool operator==(const PrimeIterator& other);
-        bool operator>(const PrimeIterator& other);
-        bool operator<(const PrimeIterator& other);
+        bool operator!=(const PrimeIterator& other) const;
+        bool operator==(const PrimeIterator& other) const;
+        bool operator>(const PrimeIterator& other) const;
+        bool operator<(const PrimeIterator& other) const;
 
         PrimeIterator begin();
         PrimeIterator end();

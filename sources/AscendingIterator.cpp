@@ -31,25 +31,25 @@ int MagicalContainer::AscendingIterator::operator*()
 };
 
 
-bool MagicalContainer::AscendingIterator::operator!=(const AscendingIterator& other)
+bool MagicalContainer::AscendingIterator::operator!=(const AscendingIterator& other) const
 {
     return _pElement != other._pElement;
 };
 
 
-bool MagicalContainer::AscendingIterator::operator==(const AscendingIterator& other)
+bool MagicalContainer::AscendingIterator::operator==(const AscendingIterator& other) const
 {
-    return !(*this == other);
+    return !(*this != other);
 };
 
 
-bool MagicalContainer::AscendingIterator::operator>(const AscendingIterator& other)
+bool MagicalContainer::AscendingIterator::operator>(const AscendingIterator& other) const
 {
     return _stepsNo > other._stepsNo;
 };
 
 
-bool MagicalContainer::AscendingIterator::operator<(const AscendingIterator& other)
+bool MagicalContainer::AscendingIterator::operator<(const AscendingIterator& other) const
 {
     return _stepsNo < other._stepsNo;
 };

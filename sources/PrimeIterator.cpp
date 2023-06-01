@@ -31,25 +31,25 @@ int MagicalContainer::PrimeIterator::operator*()
 };
 
 
-bool MagicalContainer::PrimeIterator::operator!=(const PrimeIterator& other)
+bool MagicalContainer::PrimeIterator::operator!=(const PrimeIterator& other) const
 {
     return _pElement != other._pElement;
 };
 
 
-bool MagicalContainer::PrimeIterator::operator==(const PrimeIterator& other)
+bool MagicalContainer::PrimeIterator::operator==(const PrimeIterator& other) const
 {
-    return !(*this == other);
+    return !(*this != other);
 };
 
 
-bool MagicalContainer::PrimeIterator::operator>(const PrimeIterator& other)
+bool MagicalContainer::PrimeIterator::operator>(const PrimeIterator& other) const
 {
     return _stepsNo > other._stepsNo;
 };
 
 
-bool MagicalContainer::PrimeIterator::operator<(const PrimeIterator& other)
+bool MagicalContainer::PrimeIterator::operator<(const PrimeIterator& other) const
 {
     return _stepsNo < other._stepsNo;
 };
