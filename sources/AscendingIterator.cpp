@@ -11,6 +11,9 @@ MagicalContainer::AscendingIterator::AscendingIterator(MagicalContainer& contain
 };
 
 
+MagicalContainer::AscendingIterator::~AscendingIterator(){};
+
+
 MagicalContainer::AscendingIterator::AscendingIterator(AscendingIterator& other)
     : _container(other._container)
 {

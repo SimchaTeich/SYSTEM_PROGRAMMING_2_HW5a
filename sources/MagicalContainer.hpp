@@ -53,7 +53,7 @@ namespace ariel
     public:
         AscendingIterator(MagicalContainer& container);
         AscendingIterator(AscendingIterator& other);
-        //~AscendingIterator();
+        ~AscendingIterator();
 
         // operatores
         AscendingIterator& operator=(const AscendingIterator& other);
