@@ -86,9 +86,9 @@ namespace ariel
         SideCrossIterator& operator++(); // pre
         int operator*();
         bool operator!=(const SideCrossIterator& other);
-        bool operator==(const AscendingIterator& other);
-        bool operator>(const AscendingIterator& other);
-        bool operator<(const AscendingIterator& other);
+        bool operator==(const SideCrossIterator& other);
+        bool operator>(const SideCrossIterator& other);
+        bool operator<(const SideCrossIterator& other);
 
         SideCrossIterator begin();
         SideCrossIterator end();
