@@ -17,6 +17,16 @@ MagicalContainer::MagicalContainer()
 };
 
 
+// D'TOR
+MagicalContainer::~MagicalContainer()
+{
+    while(_size > 0)
+    {
+        removeElement(_head->value());
+    }
+};
+
+
 /***************************    API    *****************************/
 void MagicalContainer::addElement(int value)
 {

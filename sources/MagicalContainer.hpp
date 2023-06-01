@@ -9,7 +9,7 @@ namespace ariel
     {
     public:
         MagicalContainer();
-        //~MagicalContainer();
+        ~MagicalContainer();
         void addElement(int value);
         void removeElement(int value);
         int size() const;
