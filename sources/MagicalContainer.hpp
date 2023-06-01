@@ -81,7 +81,7 @@ namespace ariel
     public:
         SideCrossIterator(MagicalContainer& container);
         SideCrossIterator(SideCrossIterator& other);
-        //~SideCrossIterator();
+        ~SideCrossIterator();
 
         // operatores
         SideCrossIterator& operator=(const SideCrossIterator& other);

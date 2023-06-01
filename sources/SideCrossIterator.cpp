@@ -13,6 +13,9 @@ MagicalContainer::SideCrossIterator::SideCrossIterator(MagicalContainer& contain
 };
 
 
+MagicalContainer::SideCrossIterator::~SideCrossIterator(){};
+
+
 MagicalContainer::SideCrossIterator::SideCrossIterator(SideCrossIterator& other)
     : _container(other._container)
 {
