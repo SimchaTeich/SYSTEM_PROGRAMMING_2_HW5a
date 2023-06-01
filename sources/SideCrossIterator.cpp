@@ -13,6 +13,25 @@ MagicalContainer::SideCrossIterator::SideCrossIterator(MagicalContainer& contain
 };
 
 
+MagicalContainer::SideCrossIterator::SideCrossIterator(SideCrossIterator& other)
+    : _container(other._container)
+{
+    *this = other;
+};
+
+
+MagicalContainer::SideCrossIterator& MagicalContainer::SideCrossIterator::operator=(const SideCrossIterator& other)
+{
+    _container = other._container;
+    _pElementFromStart = other._pElementFromStart;
+    _pElementFromEnd = other._pElementFromEnd;
+    _stepsNo = other._stepsNo;
+
+    return *this;
+};
+
+
+
 MagicalContainer::SideCrossIterator& MagicalContainer::SideCrossIterator::operator++()
 {
     if(_moveFromStart)
