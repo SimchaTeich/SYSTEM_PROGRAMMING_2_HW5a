@@ -5,7 +5,7 @@
 
 namespace ariel
 {
-    class MagicalContainer
+    class MagicalContainer // NOLINT
     {
     public:
         MagicalContainer();
@@ -43,7 +43,7 @@ namespace ariel
     };
 
 
-    class MagicalContainer::AscendingIterator
+    class MagicalContainer::AscendingIterator // NOLINT
     {
     private:
         MagicalContainer& _container;
@@ -69,7 +69,7 @@ namespace ariel
     };
 
 
-    class MagicalContainer::SideCrossIterator
+    class MagicalContainer::SideCrossIterator // NOLINT
     {
     private:
         MagicalContainer& _container;
@@ -97,7 +97,7 @@ namespace ariel
     };
 
 
-    class MagicalContainer::PrimeIterator
+    class MagicalContainer::PrimeIterator // NOLINT
     {
     private:
         MagicalContainer& _container;

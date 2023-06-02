@@ -25,7 +25,7 @@ namespace ariel
         void setPrimeBack(MisticalElementNode *next);
 
         // use for easy printing
-        friend ostream& operator<<(ostream& os, const MisticalElementNode& node);
+        friend ostream& operator<<(ostream& os, const MisticalElementNode& node); // NOLINT
 
     private:
         int _value;
